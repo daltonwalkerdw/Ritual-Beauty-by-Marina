@@ -1,38 +1,27 @@
-/* .hobby-list {
-    svg {
-        color: white;
-    }
-} */
-
-/* About Me Container */
 .about-container {
     padding: 0 10px;
     margin: 0 auto;
 }
 
 
-/* Styling for the Paragraph */
 .about-container p {
     font-size: 1em;
     line-height: 1.8;
 }
 
 .about-text {
-    /* color: rgb(217, 217, 217); */
     padding: 15px;
     margin: 20px 0;
     text-align: left;
-    font-weight: bold; /* Bolder font */
+    font-weight: bold;
     line-height: 1.6;
     letter-spacing: 2px !important;
 }
-
 
 .hook {
     font-size: 1.5em;
 }
 
-/* Optional: Responsive adjustments for smaller screens */
 @media (min-width: 768px) {
     .about-container {
         padding: 0 80px;
@@ -46,7 +35,6 @@
 
     .content-paragraphs {
         width: 60%;
-
     }
 
     .content-list {

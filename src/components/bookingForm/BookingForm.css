@@ -1,25 +1,20 @@
 .form-container {
     padding: 20px;
-    background-color: #FFF7E8;
   }
 
   
   .MuiTextField-root {
-    background-color: #ffffff; /* White background for input fields */
-    border-color: #9E9EAC; /* Dusty Lavender borders */
-    /* Other styles for TextField */
+    background-color: #ffffff;
+    border-color: #9E9EAC;
   }
   
   .MuiButton-containedPrimary {
-    background-color: #C9A678 !important; /* Elegant Gold */
-    color: #FFF7E8 !important; /* Creamy Ivory for the button text */
-    /* Additional button styling if needed */
-   
+    color: #FFF7E8 !important; 
   }
   
   .form-button-container {
     display: flex;
-    justify-content: flex-start; /* Aligns items to the left */
-    margin-top: 16px; /* Adjusts the margin to match the theme's spacing */
+    justify-content: flex-start; 
+    margin-top: 16px; 
   }
  

@@ -1,12 +1,12 @@
 import React from 'react';
-import { Card, CardContent, Typography, List, ListItem, ListItemText, Grid } from '@mui/material';
+import { Card, CardContent, Typography, Grid } from '@mui/material';
 import './Service.css'
 
 interface Service {
     title: string;
     description?: string;
     price: string;
-    duration?: string; // Optional because some services don't have a specified duration
+    duration?: string;
 }
 
 
@@ -72,9 +72,9 @@ const ServicesSection: React.FC = () => {
             <Grid container spacing={2} style={{ display: 'flex', alignItems: 'stretch' }}>
                 {services.map((service, index) => (
                     <Grid item xs={12} md={6} key={index} style={{ display: 'flex' }}>
-                        <Card sx={{ width: '100%', display: 'flex', flexDirection: 'column', background: '#FFF7E8' }}>
+                        <Card sx={{ width: '100%', display: 'flex', flexDirection: 'column'}}>
                             <CardContent sx={{ flexGrow: 1 }}>
-                                <Typography variant="h5" component="div" sx={{ color: '#6E4555' }}>
+                                <Typography variant="h5">
                                     {service.title}
                                 </Typography>
                                 <Typography sx={{ mb: 1.5 }} color="text.secondary">

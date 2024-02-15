@@ -22,7 +22,6 @@ const BookingForm: React.FC = () => {
 
     const recipientEmail = 'ritualbeautybymarina@gmail.com';
   
-    // URL encode form data for the mailto link
     const mailtoLink = `mailto:${recipientEmail}?subject=${formData.name} Booking Inquiry&body=${
       encodeURIComponent(
         `Name: ${formData.name}\n` +
@@ -35,10 +34,8 @@ const BookingForm: React.FC = () => {
       )
     }`;
   
-    // Open default mail client with pre-filled data
     window.location.href = mailtoLink;
   
-    // Reset form after opening the email client
     setFormData({ name: '', email: '', date: '', message: '' });
   };
   

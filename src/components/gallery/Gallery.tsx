@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import './Gallery.css'; // Make sure to import the slick-carousel CSS here as well
+import './Gallery.css';
 import { Box, Typography } from '@mui/material';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-
 const Gallery: React.FC = () => {
   const [images, setImages] = useState<string[]>([]);
+  const [currentSlide, setCurrentSlide] = useState(1);
 
   useEffect(() => {
     const importImages = async () => {
@@ -19,9 +19,8 @@ const Gallery: React.FC = () => {
     importImages();
   }, []);
 
-  
   const settings = {
-    dots: true,
+    dots: true, 
     infinite: true,
     speed: 500,
     slidesToShow: 3,
@@ -29,6 +28,7 @@ const Gallery: React.FC = () => {
     autoplay: false,
     autoplaySpeed: 2000,
     cssEase: "linear",
+    afterChange: (current: number) => setCurrentSlide(current + 1), 
     responsive: [
       {
         breakpoint: 768,
@@ -36,7 +36,7 @@ const Gallery: React.FC = () => {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
-          dots: true
+          dots: false,
         }
       },
     ]
@@ -47,7 +47,10 @@ const Gallery: React.FC = () => {
       <Typography variant="h3" gutterBottom id='gallery' className='section-title'>
         Gallery
       </Typography>
-      <Slider {...settings}>
+      <div className="gallery-counter">
+        {currentSlide} / {images.length}
+      </div>
+      <Slider {...settings} className='gallery-slider'>
         {images.map((image, index) => (
           <div key={index}>
             <img src={image} alt={`Gallery image ${index + 1}`} className="gallery-image" />

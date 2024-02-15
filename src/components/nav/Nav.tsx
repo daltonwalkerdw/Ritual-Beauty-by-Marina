@@ -1,10 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { AppBar, Toolbar, Button, Container, IconButton, Drawer, List, ListItem, Divider, Typography, ListItemText, Box } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-
-const scrollToSection = (sectionId: string) => {
-  document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-};
 
 const menuItems = [
   { text: 'About', sectionId: 'about' },
@@ -21,10 +17,16 @@ const Nav = () => {
     setMobileOpen(!mobileOpen);
   };
 
+  const scrollToSection = (sectionId: string) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+
+    handleDrawerToggle()
+  };
+
   const drawer = (
     <div>
       <List>
-        {menuItems.map((item, index) => (
+        {menuItems.map((item) => (
           <ListItem key={item.text} onClick={() => scrollToSection(item.sectionId)}>
             <ListItemText primary={item.text} />
           </ListItem>
@@ -35,7 +37,7 @@ const Nav = () => {
   );
 
   return (
-    <AppBar position="sticky" sx={{ background: '#C9A678', color: '#333333',  }}>
+    <AppBar position="sticky" sx={{ background: '#C9A678', color: '#333333' }}>
       <Container sx={{
         maxWidth: {
           lg: 'none',
@@ -72,7 +74,7 @@ const Nav = () => {
         open={mobileOpen}
         onClose={handleDrawerToggle}
         ModalProps={{
-          keepMounted: true, // Better open performance on mobile.
+          keepMounted: true,
         }}
         sx={{
           display: { xs: 'block', sm: 'none' },
